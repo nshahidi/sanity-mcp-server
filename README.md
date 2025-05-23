@@ -1,4 +1,5 @@
 # Sanity MCP Server <!-- omit in toc -->
+[![smithery badge](https://smithery.ai/badge/@nshahidi/sanity-mcp-server)](https://smithery.ai/server/@nshahidi/sanity-mcp-server)
 
 > Transform your content operations with AI-powered tools for Sanity. Create, manage, and explore your content through natural language conversations in your favorite AI-enabled editor.
 
