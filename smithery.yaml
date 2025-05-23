@@ -1,0 +1,40 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['build/index.js'], env: { SANITY_API_TOKEN: config.sanityApiToken, SANITY_PROJECT_ID: config.sanityProjectId, SANITY_DATASET: config.sanityDataset, MCP_USER_ROLE: config.mcpUserRole, SANITY_API_HOST: config.sanityApiHost } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - sanityApiToken
+      - sanityProjectId
+      - sanityDataset
+      - mcpUserRole
+    properties:
+      sanityApiToken:
+        type: string
+        description: Sanity API token with appropriate permissions
+      sanityProjectId:
+        type: string
+        description: Sanity project ID
+      sanityDataset:
+        type: string
+        description: Sanity dataset name
+      mcpUserRole:
+        type: string
+        default: developer
+        description: MCP user role, either developer or editor
+      sanityApiHost:
+        type: string
+        default: https://api.sanity.io
+        description: Sanity API host
+  exampleConfig:
+    sanityApiToken: sk_test_ABC123xyz
+    sanityProjectId: myProjectId
+    sanityDataset: production
+    mcpUserRole: developer
+    sanityApiHost: https://api.sanity.io
